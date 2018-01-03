@@ -1,3 +1,6 @@
+REM Made By: DeDogeGod
+REM Some codes were copied from stacks
+REM Might only work for windows 7. Please report to issues if it doesnt work for other versions.
 DELAY 1000
 GUI r
 DELAY 500
