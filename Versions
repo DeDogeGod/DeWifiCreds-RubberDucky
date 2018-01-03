@@ -1,1 +1,14 @@
+Version 0.1a-1.2v sWARE OUTDATED
+Version 1.3 sWARE NEW
+email Wicreds NEW
+usb Wicreds OUTDATED - Use sWARE much better.
+
+email Wicreds:
+  Takes wifi creds with admin cmd not using any software leaving basically no evidence. Slow but emails it to your.
+  
+usb Wicreds:
+  Just like the emial version. Doesn't use any software and uses admin cmd. This one saves to usb. Outdated and will probaly not be updated.
+
+sWARE Wicreds:
+  Uses a software to take wifi creds. SUPER FAST!!!! Might be virus detected though. Also uses admin bypass if not deteced. Better becuase fo its speed.
 
